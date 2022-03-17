@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using WebTransport.Dto;
 using WebTransport.DataBase;
+using System.Linq;
 
 namespace WebTransport.Controllers
 {
     public class TransportController: ControllerBase
     {
-        private readonly TransportContext _dbContext;
+        private TransportContext _dbContext;
+        public static List<int> number=new List<int>() { 1, 2, 3,4,5,6, 6,6 };
+        List<int> chetn = number.Where(s=>s% 2 != 0).Distinct().ToList();
         public TransportController(TransportContext dbContext)
         {
             _dbContext = dbContext;
@@ -24,7 +27,7 @@ namespace WebTransport.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok();
+            return Ok(chetn);
         }
     }
 }
