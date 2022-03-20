@@ -70,18 +70,11 @@ namespace WebTransport.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Latitude = table.Column<double>(type: "double precision", nullable: false),
                     Longitude = table.Column<double>(type: "double precision", nullable: false),
-                    DistrictId = table.Column<int>(type: "integer", nullable: false),
                     RouteId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Stops", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Stops_Districts_DistrictId",
-                        column: x => x.DistrictId,
-                        principalTable: "Districts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Stops_Routes_RouteId",
                         column: x => x.RouteId,
@@ -101,11 +94,6 @@ namespace WebTransport.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stops_DistrictId",
-                table: "Stops",
-                column: "DistrictId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Stops_RouteId",
                 table: "Stops",
                 column: "RouteId");
@@ -114,10 +102,10 @@ namespace WebTransport.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Stops");
+                name: "Districts");
 
             migrationBuilder.DropTable(
-                name: "Districts");
+                name: "Stops");
 
             migrationBuilder.DropTable(
                 name: "Routes");

@@ -25,6 +25,8 @@ namespace WebTransport.DataParse
                 RouteStops route = new RouteStops();
                 s[1] = s[1].Replace("\"", "");
                 route.Number = s[1];
+                s[5] = s[5].Replace("\"", "");
+                route.Type = s[5];
                 string[] trach_of_route = s[3].Split(" - ");
                 for (int j = 0; j < trach_of_route.Length; j++)
                 {

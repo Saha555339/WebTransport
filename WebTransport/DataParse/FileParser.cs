@@ -16,7 +16,7 @@ namespace WebTransport.DataParse
             const int file_length_byte = 1024 * 1024 * 10;
             System.IO.FileInfo file = new System.IO.FileInfo(_path);
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-            Encoding srcEncoding = Encoding.GetEncoding(1251);
+            System.Text.Encoding srcEncoding = System.Text.Encoding.GetEncoding(1251);
             if (_path != null)
             {
                 if (!(_path.EndsWith(".csv") || _path.EndsWith(".txt")))

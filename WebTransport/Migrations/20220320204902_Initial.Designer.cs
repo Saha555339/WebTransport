@@ -9,7 +9,7 @@ using WebTransport.DataBase;
 namespace WebTransport.Migrations
 {
     [DbContext(typeof(TransportContext))]
-    [Migration("20220315182921_Initial")]
+    [Migration("20220320204902_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -85,9 +85,6 @@ namespace WebTransport.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<int>("DistrictId")
-                        .HasColumnType("integer");
-
                     b.Property<double>("Latitude")
                         .HasColumnType("double precision");
 
@@ -101,8 +98,6 @@ namespace WebTransport.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DistrictId");
 
                     b.HasIndex("RouteId");
 
@@ -133,19 +128,11 @@ namespace WebTransport.Migrations
 
             modelBuilder.Entity("WebTransport.DataBase.Stop", b =>
                 {
-                    b.HasOne("WebTransport.DataBase.District", "District")
-                        .WithMany()
-                        .HasForeignKey("DistrictId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WebTransport.DataBase.Route", "Route")
                         .WithMany()
                         .HasForeignKey("RouteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("District");
 
                     b.Navigation("Route");
                 });
