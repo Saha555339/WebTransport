@@ -7,6 +7,8 @@ using WebTransport.DataLoading;
 
 namespace WebTransport.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class TransportController: ControllerBase
     {
         private TransportContext _dbContext;
@@ -20,9 +22,10 @@ namespace WebTransport.Controllers
         {
             Loading loading = new(_dbContext);
             //_dbContext.Database.EnsureDeleted();
-            loading.AllLoading();
+            //loading.AllLoading();
             //loading.RemoveAll();
-            return Ok();
+            return Ok(_dbContext.Stops.Where(s=>s.Route.Number.Contains("М97")).ToList().OrderBy(s=>s.StopNumber));
+            //return Ok();
         }
     }
 }

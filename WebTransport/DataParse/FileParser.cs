@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using WebTransport.ProjectExceptions;
 
 namespace WebTransport.DataParse
 {
@@ -20,21 +21,21 @@ namespace WebTransport.DataParse
             if (_path != null)
             {
                 if (!(_path.EndsWith(".csv") || _path.EndsWith(".txt")))
-                    throw new Exception("Некорректный тип файла");
+                    throw new TransportParseException("Некорректный тип файла");
                 else
                 {
                     if (file.Length > file_length_byte)
-                        throw new Exception("Некорректный размер файла");
+                        throw new TransportParseException("Некорректный размер файла");
                     else
                     {
                         _arr = File.ReadAllLines(_path, encoding: srcEncoding);
                         if (_arr[0] == "")
-                            throw new Exception("Файл пуст");
+                            throw new TransportParseException("Файл пуст");
                     }
                 }
             }
             else
-                throw new Exception("Путь файла не загружен");
+                throw new TransportParseException("Путь файла не загружен");
         }
     }
 }

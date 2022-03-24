@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using WebTransport.DataParse;
+using WebTransport.ProjectExceptions;
 
 namespace WebTransport.DataLoading
 {
@@ -24,41 +25,37 @@ namespace WebTransport.DataLoading
             _createStops = new Create<Stop>(_dbContext);
         }
 
-        private List<City> _cities = new List<City>();
-        private List<District> _districts = new List<District>();
-        private List<Route> _routes = new List<Route>();
-        private List<Stop> _stops = new List<Stop>();
-
         private StopsFileParser _parseStops = new StopsFileParser(@"C:\lab\WebTransport\OnlyStopsCoordinates.csv");
         private RouteFileParser _parseRoutes = new RouteFileParser(@"C:\lab\WebTransport\OnlyStops&Routes.csv");
 
         private void StopsLoading()
         {
-            //for(int i=0;i<_parseStops.StopNames.Count;i++)
-            //{
-            //    var district = _dbContext.Districts.FirstOrDefault(s=>s.Name == _parseStops.DistrictNames[i]);
-            //    var routes = _parseRoutes.RouteStops.Where(s => s.Stops.FirstOrDefault(s => s.Contains(_parseStops.StopNames[i])) != null).ToList();
-            //    foreach(var route in routes)
-            //    {
-            //        var route_tek = _dbContext.Routes.FirstOrDefault(s => s.Number == route.Number);
-            //        _createStops.Add(new Stop()
-            //        {
-            //            Name = _parseStops.StopNames[i],
-            //            Latitude = _parseStops.Latitudes[i],
-            //            Longitude = _parseStops.Longitudes[i],
-            //            DistrictId = district.Id,
-            //            RouteId = route_tek.Id
-            //        });
-            //    }
-            //}
-
-            for (int i = 0; i < _parseRoutes.RouteStops.Count; i++)
+            for(int i=0;i<_parseRoutes.RouteStops.Count;i++)
             {
+                int number = 0;
                 var route = _dbContext.Routes.FirstOrDefault(s => s.Number == _parseRoutes.RouteStops[i].Number);
-                foreach (var stop in _parseRoutes.RouteStops[i].Stops)
+                if (route != null)
                 {
-                    _createStops.Add(new Stop() { Name = stop, RouteId = route.Id });
+                    foreach (var stop in _parseRoutes.RouteStops[i].Stops.Distinct().ToList())
+                    {
+                        var stop_routes = _parseStops.Stops.FirstOrDefault(s => s.Name.Contains(stop));
+                        if (stop_routes != null)
+                        {
+                            number++;
+                            _createStops.Add(new Stop()
+                            {
+                                Name = stop,
+                                StopNumber = number,
+                                RouteId = route.Id,
+                                Latitude = stop_routes.Latitude,
+                                Longitude = stop_routes.Longitude,
+                                Route = route
+                            });
+                        }
+                    }
                 }
+                else
+                    throw new TransportDataBaseException("Маршрута с таким номером не существует");
             }
             _dbContext.SaveChanges();
 
@@ -67,19 +64,29 @@ namespace WebTransport.DataLoading
         private void RoutesLoading()
         {
             var city = _dbContext.Cities.FirstOrDefault(s => s.Name == "Москва");
-            foreach(var route in _parseRoutes.RouteStops)
-                _createRoutes.Add(new Route() { Type = route.Type, CityId = city.Id, Number = route.Number });
+            if (city != null)
+            {
+                foreach (var route in _parseRoutes.RouteStops)
+                    _createRoutes.Add(new Route() { Type = route.Type, CityId = city.Id, Number = route.Number, City = city });
+            }
+            else
+                throw new TransportDataBaseException("Города с таким названием не существует");
             _dbContext.SaveChanges();
         }
 
         private void DistrictsLoading()
         {
             var city = _dbContext.Cities.FirstOrDefault(s => s.Name == "Москва");
-            List<string> names = _parseStops.DistrictNames.Distinct().ToList();
-            foreach(var name in names)
+            List<string> names = _parseStops.Stops.Select(s => s.DistcrictName).Distinct().ToList();
+            if (city != null)
             {
-                _createDistricts.Add(new District() { Name = name, CityId = city.Id });
+                foreach (var name in names)
+                {
+                    _createDistricts.Add(new District() { Name = name, CityId = city.Id, City = city });
+                }
             }
+            else
+                throw new TransportDataBaseException("Города с таким названием не существует");
             _dbContext.SaveChanges();
         }
 
@@ -89,7 +96,7 @@ namespace WebTransport.DataLoading
                 .Where(s => s.Name == "Москва")
                 .ToList();
             if (spec.Count != 0)
-                throw new Exception("Город с таким названием уже существует");
+                throw new TransportDataBaseException("Город с таким названием уже существует");
             else
                 _createCities.Add(new City() { Name = "Москва" });
             _dbContext.SaveChanges();
@@ -97,12 +104,31 @@ namespace WebTransport.DataLoading
 
         public void AllLoading()
         {
-            _parseRoutes.ParseRoutes();
-            _parseStops.ParseStops();
-            CitiesLoading();
-            DistrictsLoading();
-            RoutesLoading();
-            StopsLoading();
+            bool check = true;
+            try
+            {
+                _parseRoutes.ParseRoutes();
+                _parseStops.ParseStops();
+            }
+            catch(TransportParseException ex)
+            {
+                Console.WriteLine(ex.Message);
+                check = false;
+            }
+            if (check)
+            {
+                try
+                {
+                    CitiesLoading();
+                    DistrictsLoading();
+                    RoutesLoading();
+                    StopsLoading();
+                }
+                catch (TransportDataBaseException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
         public void RemoveAll()
         {
@@ -111,7 +137,6 @@ namespace WebTransport.DataLoading
             _dbContext.Districts.RemoveRange(_dbContext.Districts.ToList());
             _dbContext.Cities.RemoveRange(_dbContext.Cities.ToList());
             _dbContext.SaveChanges();
-
         }
     }
 }

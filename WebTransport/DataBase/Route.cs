@@ -12,13 +12,13 @@ namespace WebTransport.DataBase
         [Required]
         public int CityId { get; set; }
         public City City { get; set; }
-        public List<Stop> Stops = new List<Stop>();
+        public ICollection<Stop> Stops { get; set; }
         public Route()
         {
 
         }
 
-        public Route(string number, string type, int cityId, City city, List<Stop> stops, int id=0)
+        public Route(string number, string type, int cityId, City city, ICollection<Stop> stops, int id=0)
         {
             Id = id;
             Number = number;

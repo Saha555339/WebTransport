@@ -1,6 +1,6 @@
 ﻿using WebTransport.Dto;
 using System.Collections.Generic;
-using WebTransport.DataBase;
+using WebTransport.ProjectExceptions;
 using System;
 using System.IO;
 using System.Globalization;
@@ -15,59 +15,58 @@ namespace WebTransport.DataParse
         {
 
         }
-        private List<string> _stopNames = new List<string>();
-        public List<string> StopNames
+        private List<StopForParse> _stops = new List<StopForParse>();
+        public List<StopForParse> Stops
         {
-            get { return _stopNames; }
-        }
-        private List<double> _longitudes = new List<double>();
-        public List<double> Longitudes
-        {
-            get { return _longitudes; }
-        }
-        private List<double> _latitudes = new List<double>();
-        public List<double> Latitudes
-        {
-            get { return _latitudes; }
-        }
-        private List<string> _districtNames = new List<string>();
-        public List<string> DistrictNames
-        {
-            get { return _districtNames; }
+            get { return _stops; }
         }
         IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
 
         public void ParseStops()
         {
-            Parse();
-            //Проверка на названия
-            for (int i = 1; i < _arr.Length; i++)
+            bool check = true;
+            try
             {
-                string[] s = _arr[i].Split(";");
-                s[1] = s[1].Replace("\"", "");
-                _stopNames.Add(s[1]);
-                bool check = true;
-                double longitude = 0;
-                double latitude = 0;
-                try
+                Parse();
+            }
+            catch(TransportParseException ex)
+            {
+                Console.WriteLine(ex.Message);
+                check = false;
+            }
+            //Проверка на названия
+            if (check)
+            {
+                for (int i = 1; i < _arr.Length; i++)
                 {
-                    s[2] = s[2].Replace("\"", "");
-                    s[3] = s[3].Replace("\"", "");
-                    longitude = double.Parse(s[2], formatter);
-                    latitude = double.Parse(s[3], formatter);
+                    string[] s = _arr[i].Split(";");
+                    s[1] = s[1].Replace("\"", "");
+                    s[6] = s[6].Replace("\"", "");
+                    double longitude = 0;
+                    double latitude = 0;
+                    try
+                    {
+                        s[2] = s[2].Replace("\"", "");
+                        s[3] = s[3].Replace("\"", "");
+                        longitude = double.Parse(s[2], formatter);
+                        latitude = double.Parse(s[3], formatter);
+                    }
+                    catch (Exception)
+                    {
+                        check = false;
+                        throw new TransportParseException("Неверный формат координат");
+                    }
+                    if (check)
+                    {
+                        _stops.Add(new StopForParse()
+                        {
+                            Name = s[1],
+                            Latitude = latitude,
+                            Longitude = longitude,
+                            DistcrictName = s[6]
+                        });
+                    }
                 }
-                catch (Exception)
-                {
-                    check = false;
-                    throw new Exception("Неверный формат координат");
-                }
-                if (check)
-                {
-                    _longitudes.Add(longitude);
-                    _latitudes.Add(latitude);
-                }
-                s[6] = s[6].Replace("\"", "");
-                _districtNames.Add(s[6]);
             }
         }
 

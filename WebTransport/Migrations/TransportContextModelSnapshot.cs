@@ -95,6 +95,9 @@ namespace WebTransport.Migrations
                     b.Property<int>("RouteId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("StopNumber")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.HasIndex("RouteId");
@@ -105,7 +108,7 @@ namespace WebTransport.Migrations
             modelBuilder.Entity("WebTransport.DataBase.District", b =>
                 {
                     b.HasOne("WebTransport.DataBase.City", "City")
-                        .WithMany()
+                        .WithMany("Districts")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -127,12 +130,22 @@ namespace WebTransport.Migrations
             modelBuilder.Entity("WebTransport.DataBase.Stop", b =>
                 {
                     b.HasOne("WebTransport.DataBase.Route", "Route")
-                        .WithMany()
+                        .WithMany("Stops")
                         .HasForeignKey("RouteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Route");
+                });
+
+            modelBuilder.Entity("WebTransport.DataBase.City", b =>
+                {
+                    b.Navigation("Districts");
+                });
+
+            modelBuilder.Entity("WebTransport.DataBase.Route", b =>
+                {
+                    b.Navigation("Stops");
                 });
 #pragma warning restore 612, 618
         }

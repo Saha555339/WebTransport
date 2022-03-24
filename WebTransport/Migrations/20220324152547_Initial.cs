@@ -70,6 +70,7 @@ namespace WebTransport.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Latitude = table.Column<double>(type: "double precision", nullable: false),
                     Longitude = table.Column<double>(type: "double precision", nullable: false),
+                    StopNumber = table.Column<int>(type: "integer", nullable: false),
                     RouteId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>

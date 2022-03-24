@@ -8,12 +8,12 @@ namespace WebTransport.DataBase
         [Required]
         public override int Id { get; set; }
         public string Name { get; set; }
-        public List<District> Districts = new List<District>();
+        public ICollection<District> Districts { get; set; }
         public City()
         {
 
         }
-        public City(string name, List<District> districts, int id=0)
+        public City(string name, ICollection<District> districts, int id=0)
         {
             Id = id;
             Name = name;
