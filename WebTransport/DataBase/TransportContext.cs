@@ -19,7 +19,7 @@ namespace WebTransport.DataBase
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(connectionString: "Host=localhost;Port=5432;Database=RoutesDataBase;Username=postgres;Password=postgres");
+            optionsBuilder.UseNpgsql();
         }
     }
 }

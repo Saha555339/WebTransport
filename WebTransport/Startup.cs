@@ -53,8 +53,7 @@ namespace WebTransport
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(name:"default",
-                    pattern:"{controller=Transport}/{action}");
+                endpoints.MapControllers();
             });
         }
     }
