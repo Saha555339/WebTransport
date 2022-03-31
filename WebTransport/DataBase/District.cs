@@ -11,18 +11,10 @@ namespace WebTransport.DataBase
         [Required]
         public int CityId { get; set; }
         public City City { get; set; }
+        public ICollection<Stop> Stops { get; set; }
         public District()
         {
 
         }
-
-        public District(string name, int cityId, City city, int id=0)
-        {
-            Id = id;
-            Name = name;
-            CityId = cityId;
-            City = city;
-        }
-
     }
 }

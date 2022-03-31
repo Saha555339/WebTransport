@@ -9,15 +9,10 @@ namespace WebTransport.DataBase
         public override int Id { get; set; }
         public string Name { get; set; }
         public ICollection<District> Districts { get; set; }
+        public ICollection<Route> Routes { get; set; }
         public City()
         {
 
-        }
-        public City(string name, ICollection<District> districts, int id=0)
-        {
-            Id = id;
-            Name = name;
-            Districts = districts;
         }
 
     }

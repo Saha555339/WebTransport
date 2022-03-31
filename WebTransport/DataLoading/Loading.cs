@@ -28,49 +28,85 @@ namespace WebTransport.DataLoading
         private StopsFileParser _parseStops = new StopsFileParser(@"C:\lab\WebTransport\OnlyStopsCoordinates.csv");
         private RouteFileParser _parseRoutes = new RouteFileParser(@"C:\lab\WebTransport\OnlyStops&Routes.csv");
 
+        //private void StopsLoading()
+        //{
+        //    for(int i=0;i<_parseRoutes.RouteStops.Count;i++)
+        //    {
+        //        int number = 0;
+        //        var route = _dbContext.Routes.FirstOrDefault(s => s.Number == _parseRoutes.RouteStops[i].Number);
+        //        if (route != null)
+        //        {
+        //            foreach (var stop in _parseRoutes.RouteStops[i].Stops.Distinct().ToList())
+        //            {
+        //                var stop_routes = _parseStops.Stops.FirstOrDefault(s => s.Name.Contains(stop));
+        //                if (stop_routes != null)
+        //                {
+        //                    number++;
+        //                    _createStops.Add(new Stop(name: stop, latitude: stop_routes.Latitude, longitude: stop_routes.Longitude, stopNumber: number, routeId: route.Id, route: route));
+        //                }
+        //            }
+        //        }
+        //        else
+        //            throw new TransportDataBaseException("Маршрута с таким номером не существует");
+        //    }
+        //    _dbContext.SaveChanges();
+
+        //}
+
+        //private void RoutesLoading()
+        //{
+        //    var city = _dbContext.Cities.FirstOrDefault(s => s.Name == "Москва");
+        //    if (city != null)
+        //    {
+        //        foreach (var route in _parseRoutes.RouteStops)
+        //            _createRoutes.Add(new Route(number: route.Number, type: route.Type, cityId: city.Id, city: city));
+        //    }
+        //    else
+        //        throw new TransportDataBaseException("Города с таким названием не существует");
+        //    _dbContext.SaveChanges();
+        //}
         private void StopsLoading()
         {
-            for(int i=0;i<_parseRoutes.RouteStops.Count;i++)
+            foreach(var stop in _parseStops.Stops)
             {
-                int number = 0;
-                var route = _dbContext.Routes.FirstOrDefault(s => s.Number == _parseRoutes.RouteStops[i].Number);
-                if (route != null)
+                var district = _dbContext.Districts.FirstOrDefault(s => s.Name == stop.DistcrictName);
+                if (district != null)
                 {
-                    foreach (var stop in _parseRoutes.RouteStops[i].Stops.Distinct().ToList())
+                    _createStops.Add(new Stop()
                     {
-                        var stop_routes = _parseStops.Stops.FirstOrDefault(s => s.Name.Contains(stop));
-                        if (stop_routes != null)
-                        {
-                            number++;
-                            _createStops.Add(new Stop()
-                            {
-                                Name = stop,
-                                StopNumber = number,
-                                RouteId = route.Id,
-                                Latitude = stop_routes.Latitude,
-                                Longitude = stop_routes.Longitude,
-                                Route = route
-                            });
-                        }
-                    }
+                        Name = stop.Name,
+                        Longitude = stop.Longitude,
+                        Latitude = stop.Latitude,
+                        DistrictId = district.Id,
+                        District = district
+                    });
                 }
-                else
-                    throw new TransportDataBaseException("Маршрута с таким номером не существует");
             }
             _dbContext.SaveChanges();
-
         }
-
         private void RoutesLoading()
         {
             var city = _dbContext.Cities.FirstOrDefault(s => s.Name == "Москва");
-            if (city != null)
+            if(city!=null)
             {
-                foreach (var route in _parseRoutes.RouteStops)
-                    _createRoutes.Add(new Route() { Type = route.Type, CityId = city.Id, Number = route.Number, City = city });
+                foreach(var route in _parseRoutes.RouteStops)
+                {
+                    var new_route = new Route() { Number = route.Number, CityId = city.Id, City = city, Type = route.Type };
+                    List<int> stopsId = new();
+                    foreach (var stop in route.Stops)
+                    {
+                        var routestop = _dbContext.Stops.FirstOrDefault(s => s.Name.Contains(stop));
+                        if(routestop!=null)
+                        {
+                            stopsId.Add(routestop.Id);
+                        }
+                    }
+                    new_route.StopsId = stopsId;
+                    _createRoutes.Add(new_route);
+                }
             }
             else
-                throw new TransportDataBaseException("Города с таким названием не существует");
+                throw new TransportDataBaseException("The city with that name doesn't exist");
             _dbContext.SaveChanges();
         }
 
@@ -92,13 +128,13 @@ namespace WebTransport.DataLoading
 
         private void CitiesLoading()
         {
-            var spec = _dbContext.Cities
+            var city = _dbContext.Cities
                 .Where(s => s.Name == "Москва")
                 .ToList();
-            if (spec.Count != 0)
+            if (city.Count != 0)
                 throw new TransportDataBaseException("Город с таким названием уже существует");
             else
-                _createCities.Add(new City() { Name = "Москва" });
+                _createCities.Add(new City() { Name = "Москва"});
             _dbContext.SaveChanges();
         }
 
@@ -121,8 +157,8 @@ namespace WebTransport.DataLoading
                 {
                     CitiesLoading();
                     DistrictsLoading();
-                    RoutesLoading();
                     StopsLoading();
+                    RoutesLoading();
                 }
                 catch (TransportDataBaseException ex)
                 {

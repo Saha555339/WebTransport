@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace WebTransport.Migrations
@@ -48,7 +49,8 @@ namespace WebTransport.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Number = table.Column<string>(type: "text", nullable: true),
                     Type = table.Column<string>(type: "text", nullable: true),
-                    CityId = table.Column<int>(type: "integer", nullable: false)
+                    CityId = table.Column<int>(type: "integer", nullable: false),
+                    StopsId = table.Column<List<int>>(type: "integer[]", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,16 +72,15 @@ namespace WebTransport.Migrations
                     Name = table.Column<string>(type: "text", nullable: true),
                     Latitude = table.Column<double>(type: "double precision", nullable: false),
                     Longitude = table.Column<double>(type: "double precision", nullable: false),
-                    StopNumber = table.Column<int>(type: "integer", nullable: false),
-                    RouteId = table.Column<int>(type: "integer", nullable: false)
+                    DistrictId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Stops", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Stops_Routes_RouteId",
-                        column: x => x.RouteId,
-                        principalTable: "Routes",
+                        name: "FK_Stops_Districts_DistrictId",
+                        column: x => x.DistrictId,
+                        principalTable: "Districts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -95,21 +96,21 @@ namespace WebTransport.Migrations
                 column: "CityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stops_RouteId",
+                name: "IX_Stops_DistrictId",
                 table: "Stops",
-                column: "RouteId");
+                column: "DistrictId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Districts");
+                name: "Routes");
 
             migrationBuilder.DropTable(
                 name: "Stops");
 
             migrationBuilder.DropTable(
-                name: "Routes");
+                name: "Districts");
 
             migrationBuilder.DropTable(
                 name: "Cities");
