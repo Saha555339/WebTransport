@@ -10,7 +10,7 @@ namespace WebTransport.DataBase
         public string Name { get; set; }
         [Required]
         public int CityId { get; set; }
-        public City City { get; set; }
+        public City City {get;set; }
         public ICollection<Stop> Stops { get; set; }
         public District()
         {
