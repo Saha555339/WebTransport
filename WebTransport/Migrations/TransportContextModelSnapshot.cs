@@ -108,35 +108,29 @@ namespace WebTransport.Migrations
 
             modelBuilder.Entity("WebTransport.DataBase.District", b =>
                 {
-                    b.HasOne("WebTransport.DataBase.City", "City")
+                    b.HasOne("WebTransport.DataBase.City", null)
                         .WithMany("Districts")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("WebTransport.DataBase.Route", b =>
                 {
-                    b.HasOne("WebTransport.DataBase.City", "City")
+                    b.HasOne("WebTransport.DataBase.City", null)
                         .WithMany("Routes")
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("WebTransport.DataBase.Stop", b =>
                 {
-                    b.HasOne("WebTransport.DataBase.District", "District")
+                    b.HasOne("WebTransport.DataBase.District", null)
                         .WithMany("Stops")
                         .HasForeignKey("DistrictId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("District");
                 });
 
             modelBuilder.Entity("WebTransport.DataBase.City", b =>

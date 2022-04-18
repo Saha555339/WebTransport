@@ -9,6 +9,7 @@ namespace WebTransport.DataBase
         public override int Id { get; set; }
         public string Number { get; set; }
         public string Type { get; set; }
+
         [Required]
         public int CityId { get; set; }
         public City City { get; set; }
