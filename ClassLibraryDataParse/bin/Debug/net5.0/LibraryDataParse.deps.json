@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "LibraryDataParse/1.0.0": {
+        "dependencies": {
+          "LibraryProjectExceptions": "1.0.0"
+        },
+        "runtime": {
+          "LibraryDataParse.dll": {}
+        }
+      },
+      "LibraryProjectExceptions/1.0.0": {
+        "runtime": {
+          "LibraryProjectExceptions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LibraryDataParse/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibraryProjectExceptions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

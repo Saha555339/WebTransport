@@ -1,0 +1,12 @@
+C:\lab\WebTransport\ClassLibraryProjectExceptions\bin\Debug\net5.0\LibraryProjectExceptions.deps.json
+C:\lab\WebTransport\ClassLibraryProjectExceptions\bin\Debug\net5.0\LibraryProjectExceptions.dll
+C:\lab\WebTransport\ClassLibraryProjectExceptions\bin\Debug\net5.0\LibraryProjectExceptions.pdb
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.csproj.AssemblyReference.cache
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.GeneratedMSBuildEditorConfig.editorconfig
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.AssemblyInfoInputs.cache
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.AssemblyInfo.cs
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.csproj.CoreCompileInputs.cache
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.dll
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\refint\LibraryProjectExceptions.dll
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\LibraryProjectExceptions.pdb
+C:\lab\WebTransport\ClassLibraryProjectExceptions\obj\Debug\net5.0\ref\LibraryProjectExceptions.dll

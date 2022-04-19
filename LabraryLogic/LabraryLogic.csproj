@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryProjectExceptions\LibraryProjectExceptions.csproj" />
+    <ProjectReference Include="..\LibraryDataBase\LibraryDataBase.csproj" />
+    <ProjectReference Include="..\LibraryDto\LibraryDto.csproj" />
+  </ItemGroup>
+
+</Project>

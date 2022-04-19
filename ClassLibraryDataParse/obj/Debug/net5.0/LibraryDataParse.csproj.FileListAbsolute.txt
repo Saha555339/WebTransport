@@ -1,0 +1,15 @@
+C:\lab\WebTransport\ClassLibraryDataParse\bin\Debug\net5.0\LibraryDataParse.deps.json
+C:\lab\WebTransport\ClassLibraryDataParse\bin\Debug\net5.0\LibraryDataParse.dll
+C:\lab\WebTransport\ClassLibraryDataParse\bin\Debug\net5.0\LibraryDataParse.pdb
+C:\lab\WebTransport\ClassLibraryDataParse\bin\Debug\net5.0\LibraryProjectExceptions.dll
+C:\lab\WebTransport\ClassLibraryDataParse\bin\Debug\net5.0\LibraryProjectExceptions.pdb
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.csproj.AssemblyReference.cache
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.GeneratedMSBuildEditorConfig.editorconfig
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.AssemblyInfoInputs.cache
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.AssemblyInfo.cs
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.csproj.CoreCompileInputs.cache
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.csproj.CopyComplete
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.dll
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\refint\LibraryDataParse.dll
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\LibraryDataParse.pdb
+C:\lab\WebTransport\ClassLibraryDataParse\obj\Debug\net5.0\ref\LibraryDataParse.dll
