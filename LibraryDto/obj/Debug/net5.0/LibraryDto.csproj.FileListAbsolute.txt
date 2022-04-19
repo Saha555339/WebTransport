@@ -1,0 +1,12 @@
+C:\lab\WebTransport\LibraryDto\bin\Debug\net5.0\LibraryDto.deps.json
+C:\lab\WebTransport\LibraryDto\bin\Debug\net5.0\LibraryDto.dll
+C:\lab\WebTransport\LibraryDto\bin\Debug\net5.0\LibraryDto.pdb
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.csproj.AssemblyReference.cache
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.GeneratedMSBuildEditorConfig.editorconfig
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.AssemblyInfoInputs.cache
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.AssemblyInfo.cs
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.csproj.CoreCompileInputs.cache
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.dll
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\refint\LibraryDto.dll
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\LibraryDto.pdb
+C:\lab\WebTransport\LibraryDto\obj\Debug\net5.0\ref\LibraryDto.dll
