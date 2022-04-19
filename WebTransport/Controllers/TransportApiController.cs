@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using WebTransport.DataBase;
-using System.Linq;
-using WebTransport.EngineLogic;
-using WebTransport.ProjectExceptions;
+﻿using Microsoft.AspNetCore.Mvc;
+using LibraryDataBase.Entities;
+using LabraryLogic;
+using LibraryProjectExceptions;
 
 namespace WebTransport.Controllers
 {
@@ -32,8 +30,7 @@ namespace WebTransport.Controllers
                 check = false;
                 message = ex.Message;
             }
-            //return check?Ok(_logic.PairsOfRoutes):BadRequest(message);
-            return Ok(_logic.PairsOfRoutes);
+            return check?Ok(_logic.PairsOfRoutes):BadRequest(message);
         }
 
         [Route("transport/api/stops")]

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using WebTransport.DataBase;
+using LibraryDataBase.Entities;
 
 namespace WebTransport
 {

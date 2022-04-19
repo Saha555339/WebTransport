@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NEjGZwlnXOvgtZ3/RkAdViA2UqSnjPeuRZyf5zz1CvDCT92SkIzvRJnc/UrHLrmuCF6lvCkeCPiTECDv0+jCdQ==",
+  "dgSpecHash": "ALFz0bKrVBpKHlwTiWTR0mY/pkl4rLIi3jJu8CM0scyenfifVA0eWd4om6LbxaYvpP3q5GoQKDDPR7zrrbCv4Q==",
   "success": true,
-  "projectFilePath": "C:\\lab\\WebTransport\\LabraryLogic\\LabraryLogic.csproj",
+  "projectFilePath": "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.0\\microsoft.entityframeworkcore.5.0.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.0\\microsoft.entityframeworkcore.abstractions.5.0.0.nupkg.sha512",

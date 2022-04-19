@@ -369,6 +369,69 @@
             "rid": "win"
           }
         }
+      },
+      "LabraryLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "LibraryDataBase": "1.0.0",
+          "LibraryDto": "1.0.0",
+          "LibraryProjectExceptions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LabraryLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LabraryLogic.dll": {}
+        }
+      },
+      "LibraryDataBase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "LibraryDataParse": "1.0.0",
+          "LibraryProjectExceptions": "1.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LibraryDataBase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibraryDataBase.dll": {}
+        }
+      },
+      "LibraryDataParse/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "LibraryProjectExceptions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/LibraryDataParse.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibraryDataParse.dll": {}
+        }
+      },
+      "LibraryDto/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/LibraryDto.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibraryDto.dll": {}
+        }
+      },
+      "LibraryProjectExceptions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/LibraryProjectExceptions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LibraryProjectExceptions.dll": {}
+        }
       }
     }
   },
@@ -1110,10 +1173,40 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "LabraryLogic/1.0.0": {
+      "type": "project",
+      "path": "../LabraryLogic/LabraryLogic.csproj",
+      "msbuildProject": "../LabraryLogic/LabraryLogic.csproj"
+    },
+    "LibraryDataBase/1.0.0": {
+      "type": "project",
+      "path": "../LibraryDataBase/LibraryDataBase.csproj",
+      "msbuildProject": "../LibraryDataBase/LibraryDataBase.csproj"
+    },
+    "LibraryDataParse/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibraryDataParse/LibraryDataParse.csproj",
+      "msbuildProject": "../ClassLibraryDataParse/LibraryDataParse.csproj"
+    },
+    "LibraryDto/1.0.0": {
+      "type": "project",
+      "path": "../LibraryDto/LibraryDto.csproj",
+      "msbuildProject": "../LibraryDto/LibraryDto.csproj"
+    },
+    "LibraryProjectExceptions/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibraryProjectExceptions/LibraryProjectExceptions.csproj",
+      "msbuildProject": "../ClassLibraryProjectExceptions/LibraryProjectExceptions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "LabraryLogic >= 1.0.0",
+      "LibraryDataBase >= 1.0.0",
+      "LibraryDataParse >= 1.0.0",
+      "LibraryDto >= 1.0.0",
+      "LibraryProjectExceptions >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
@@ -1129,11 +1222,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj",
+      "projectUniqueName": "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj",
       "projectName": "WebTransport",
-      "projectPath": "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj",
+      "projectPath": "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj",
       "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-      "outputPath": "C:\\lab\\WebTransport\\WebTransport\\obj\\",
+      "outputPath": "C:\\lab\\WebTransportLab\\WebTransport\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1153,7 +1246,23 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
+              "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj"
+            },
+            "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+              "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+            },
+            "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj": {
+              "projectPath": "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj"
+            },
+            "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj": {
+              "projectPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj"
+            },
+            "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj": {
+              "projectPath": "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -33,6 +33,11 @@
     ".NETCoreApp,Version=v5.0": {
       "WebTransport/1.0.0": {
         "dependencies": {
+          "LabraryLogic": "1.0.0",
+          "LibraryDataBase": "1.0.0",
+          "LibraryDataParse": "1.0.0",
+          "LibraryDto": "1.0.0",
+          "LibraryProjectExceptions": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.0",
@@ -544,6 +549,59 @@
       "System.Text.Encoding.CodePages/5.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0"
+        }
+      },
+      "LabraryLogic/1.0.0": {
+        "dependencies": {
+          "LibraryDataBase": "1.0.0",
+          "LibraryDto": "1.0.0",
+          "LibraryProjectExceptions": "1.0.0"
+        },
+        "runtime": {
+          "LabraryLogic.dll": {}
+        },
+        "compile": {
+          "LabraryLogic.dll": {}
+        }
+      },
+      "LibraryDataBase/1.0.0": {
+        "dependencies": {
+          "LibraryDataParse": "1.0.0",
+          "LibraryProjectExceptions": "1.0.0",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.0"
+        },
+        "runtime": {
+          "LibraryDataBase.dll": {}
+        },
+        "compile": {
+          "LibraryDataBase.dll": {}
+        }
+      },
+      "LibraryDataParse/1.0.0": {
+        "dependencies": {
+          "LibraryProjectExceptions": "1.0.0"
+        },
+        "runtime": {
+          "LibraryDataParse.dll": {}
+        },
+        "compile": {
+          "LibraryDataParse.dll": {}
+        }
+      },
+      "LibraryDto/1.0.0": {
+        "runtime": {
+          "LibraryDto.dll": {}
+        },
+        "compile": {
+          "LibraryDto.dll": {}
+        }
+      },
+      "LibraryProjectExceptions/1.0.0": {
+        "runtime": {
+          "LibraryProjectExceptions.dll": {}
+        },
+        "compile": {
+          "LibraryProjectExceptions.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -2468,6 +2526,31 @@
       "sha512": "sha512-NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
       "path": "system.text.encoding.codepages/5.0.0",
       "hashPath": "system.text.encoding.codepages.5.0.0.nupkg.sha512"
+    },
+    "LabraryLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibraryDataBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibraryDataParse/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibraryDto/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "LibraryProjectExceptions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",

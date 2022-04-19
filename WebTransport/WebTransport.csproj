@@ -19,4 +19,12 @@
     <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryDataParse\LibraryDataParse.csproj" />
+    <ProjectReference Include="..\ClassLibraryProjectExceptions\LibraryProjectExceptions.csproj" />
+    <ProjectReference Include="..\LabraryLogic\LabraryLogic.csproj" />
+    <ProjectReference Include="..\LibraryDataBase\LibraryDataBase.csproj" />
+    <ProjectReference Include="..\LibraryDto\LibraryDto.csproj" />
+  </ItemGroup>
+
 </Project>

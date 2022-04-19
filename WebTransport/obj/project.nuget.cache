@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rX1/RiLmyPeqG3U66XkwWOYTRXL/OuyYWSZjQQwdzhiIxRAZoF9UZpK4C3RpfyyO/4+Ac3/2bjtT/AnwRN4/qQ==",
+  "dgSpecHash": "hWPGZX2ohUASHwGzzCQ4LHUqiGmWIXCKnzfG5UhcQgUKriyjsRTTRb+liOG26Ucs1fy+iH+mkFB0SB67gntuJg==",
   "success": true,
-  "projectFilePath": "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj",
+  "projectFilePath": "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Александр\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -33,3 +33,13 @@ C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.
 C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\Npgsql.dll
 C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LabraryLogic.dll
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryDataBase.dll
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryDto.dll
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryProjectExceptions.dll
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryProjectExceptions.pdb
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LabraryLogic.pdb
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryDataBase.pdb
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryDto.pdb
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryDataParse.dll
+C:\lab\WebTransport\WebTransport\bin\Debug\net5.0\LibraryDataParse.pdb

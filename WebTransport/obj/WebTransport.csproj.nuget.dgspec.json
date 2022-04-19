@@ -1,17 +1,79 @@
 {
   "format": 1,
   "restore": {
-    "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj": {}
+    "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj": {}
   },
   "projects": {
-    "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj": {
+    "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj",
-        "projectName": "WebTransport",
-        "projectPath": "C:\\lab\\WebTransport\\WebTransport\\WebTransport.csproj",
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj",
+        "projectName": "LibraryDataParse",
+        "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj",
         "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-        "outputPath": "C:\\lab\\WebTransport\\WebTransport\\obj\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
+        "projectName": "LibraryProjectExceptions",
+        "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,6 +94,277 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj",
+        "projectName": "LabraryLogic",
+        "projectPath": "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\LabraryLogic\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj",
+        "projectName": "LibraryDataBase",
+        "projectPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj",
+        "projectName": "LibraryDto",
+        "projectPath": "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\LibraryDto\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj",
+        "projectName": "WebTransport",
+        "projectPath": "C:\\lab\\WebTransportLab\\WebTransport\\WebTransport.csproj",
+        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\WebTransport\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\LabraryLogic\\LabraryLogic.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj"
+              },
+              "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\LibraryDto\\LibraryDto.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
