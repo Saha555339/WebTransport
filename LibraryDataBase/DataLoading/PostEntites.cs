@@ -8,10 +8,10 @@ namespace LibraryDataBase.DataLoading
     public class PostEntites
     {
         private TransportContext _dbContext;
-        private Create<City> _createCity;
-        private Create<District> _createDistrict;
-        private Create<Route> _createRoute;
-        private Create<Stop> _createStop;
+        private CreateAction<City> _createCity;
+        private CreateAction<District> _createDistrict;
+        private CreateAction<Route> _createRoute;
+        private CreateAction<Stop> _createStop;
 
         public PostEntites(TransportContext dbContext)
         {

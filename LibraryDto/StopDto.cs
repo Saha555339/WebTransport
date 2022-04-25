@@ -8,7 +8,8 @@ namespace LibraryDto
         public string Name { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public List<string> Route { get; set; }
+        //public List<string> Routes { get; set; }
+        public int DistrictId { get; set; }
         public string District { get; set; }
         public StopDto()
         {
@@ -19,7 +20,7 @@ namespace LibraryDto
             Name = name;
             Latitude = latitude;
             Longitude = longitude;
-            Route = route;
+            //Routes = route;
             District = district;
         }
     }

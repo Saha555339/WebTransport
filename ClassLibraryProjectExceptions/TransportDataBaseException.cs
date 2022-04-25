@@ -10,5 +10,7 @@ namespace LibraryProjectExceptions
 
         public TransportDataBaseException(string message)
             : base(message) { }
+        public TransportDataBaseException(string message, Exception inner)
+            :base(message, inner) { }
     }
 }
