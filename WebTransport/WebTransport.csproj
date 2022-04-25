@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,9 +15,18 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryDataParse\LibraryDataParse.csproj" />
+    <ProjectReference Include="..\ClassLibraryProjectExceptions\LibraryProjectExceptions.csproj" />
+    <ProjectReference Include="..\LabraryLogic\LibraryLogic.csproj" />
+    <ProjectReference Include="..\LibraryDataBase\LibraryDataBase.csproj" />
+    <ProjectReference Include="..\LibraryDto\LibraryDto.csproj" />
   </ItemGroup>
 
 </Project>

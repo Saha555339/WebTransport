@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using WebTransport.DataBase;
+using LibraryDataBase.Entities;
 using System.Linq;
-using WebTransport.DataLoading;
-using WebTransport.ProjectExceptions;
+using LibraryDataBase.DataLoading;
+using LibraryProjectExceptions;
+using Microsoft.Extensions.Configuration;
 
 namespace WebTransport.Controllers
 {
@@ -13,10 +14,10 @@ namespace WebTransport.Controllers
         private TransportContext _dbContext;
         private Loading _loading;
         private PostEntites _postEntites;
-        public TransportDataBaseController(TransportContext dbContext)
+        public TransportDataBaseController(TransportContext dbContext, IConfiguration configuraton)
         {
             _dbContext = dbContext;
-            _loading = new(_dbContext);
+            _loading = new(_dbContext, configuraton);
             _postEntites = new(_dbContext);
         }
 
@@ -26,19 +27,22 @@ namespace WebTransport.Controllers
         [Route("database/cities/{id?}")]
         public IActionResult GetCity(int? id)
         {
-            return Ok(_dbContext.Cities.FirstOrDefault(s=>s.Id==id));
+            var city = _dbContext.Cities.FirstOrDefault(s => s.Id == id);
+            return city != null ? Ok(city):NotFound();
         }
         [HttpGet]
         [Route("database/districts/{id?}")]
         public IActionResult GetDistrict(int? id)
         {
-            return Ok(_dbContext.Districts.FirstOrDefault(s=>s.Id==id));
+            var district = _dbContext.Districts.FirstOrDefault(s => s.Id == id);
+            return district!=null?Ok(district):NotFound();
         }
         [HttpGet]
         [Route("database/routes/{id?}")]
         public IActionResult GetRoutes(int? id)
         {
-            return Ok(_dbContext.Routes.FirstOrDefault(s=>s.Id==id));
+            var route = _dbContext.Routes.FirstOrDefault(s => s.Id == id);
+            return route!=null?Ok(route):NotFound();
         }
         [HttpGet]
         [Route("database/stops/{id?}")]
@@ -70,7 +74,7 @@ namespace WebTransport.Controllers
         public string DeleteCity(int id)
         {
             string answer = $"City with id {id} deleted";
-            Delete<City> delete = new(_dbContext);
+            DeleteAction<City> delete = new(_dbContext);
             try
             {
                 delete.DeleteEntity(id);
@@ -86,7 +90,7 @@ namespace WebTransport.Controllers
         public string DeleteDistrict(int id)
         {
             string answer = $"City with id {id} deleted";
-            Delete<District> delete = new(_dbContext);
+            DeleteAction<District> delete = new(_dbContext);
             try
             {
                 delete.DeleteEntity(id);
@@ -102,7 +106,7 @@ namespace WebTransport.Controllers
         public string DeleteRoute(int id)
         {
             string answer = $"City with id {id} deleted";
-            Delete<Route> delete = new(_dbContext);
+            DeleteAction<Route> delete = new(_dbContext);
             try
             {
                 delete.DeleteEntity(id);
@@ -118,7 +122,7 @@ namespace WebTransport.Controllers
         public string DeleteStop(int id)
         {
             string answer = $"City with id {id} deleted";
-            Delete<Stop> delete = new(_dbContext);
+            DeleteAction<Stop> delete = new(_dbContext);
             try
             {
                 delete.DeleteEntity(id);
@@ -149,7 +153,7 @@ namespace WebTransport.Controllers
         }
         [HttpPost]
         [Route("database/post/city")]
-        public string PostCity(string name)
+        public IActionResult PostCity(string name)
         {
             string answer = "City loaded";
             try
@@ -160,11 +164,11 @@ namespace WebTransport.Controllers
             {
                 answer = ex.Message;
             }
-            return answer;
+            return answer== "City loaded"?Ok(_dbContext.Cities.First(s=>s.Name==name)):BadRequest(answer);
         }
         [HttpPost]
         [Route("database/post/district")]
-        public string PostDistrict(string name, int cityId)
+        public IActionResult PostDistrict(string name, int cityId)
         {
             string answer = "District loaded";
             try
@@ -175,11 +179,11 @@ namespace WebTransport.Controllers
             {
                 answer = ex.Message;
             }
-            return answer;
+            return answer == "District loaded" ? Ok(_dbContext.Districts.First(s => s.Name == name)) : BadRequest(answer);
         }
         [HttpPost]
         [Route("database/post/stop")]
-        public string PostStop(string name, double latitude, double longitude, int districtId)
+        public IActionResult PostStop(string name, double latitude, double longitude, int districtId)
         {
             string answer = "Stop loaded";
             try
@@ -190,22 +194,22 @@ namespace WebTransport.Controllers
             {
                 answer = ex.Message;
             }
-            return answer;
+            return answer == "Stop loaded" ? Ok(_dbContext.Stops.First(s => s.Name == name)) : BadRequest(answer);
         }
         [HttpPost]
         [Route("database/post/route")]
-        public string PostRoute(string name, string type, int cityId, List<int> stopsId)
+        public IActionResult PostRoute(string number, string type, int cityId, List<int> stopsId)
         {
             string answer = "Route loaded";
             try
             {
-                _postEntites.PostRoute(name, type, cityId, stopsId);
+                _postEntites.PostRoute(number, type, cityId, stopsId);
             }
             catch (TransportDataBaseException ex)
             {
                 answer = ex.Message;
             }
-            return answer;
+            return answer == "Route loaded" ? Ok(_dbContext.Routes.First(s => s.Number == number)) : BadRequest(answer);
         }
         #endregion
 

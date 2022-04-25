@@ -8,5 +8,9 @@ namespace LibraryProjectExceptions
         public LogicExceptions() { }
         public LogicExceptions(string message)
         :base(message) { }
+        public LogicExceptions(string message, Exception inner)
+        : base(message, inner)
+        {
+        }
     }
 }

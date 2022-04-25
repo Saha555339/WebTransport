@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KpFlsaDMH59pDDCI5rJccUHVXUznkx4rOKnpPb1LCN3L/b4GrLe2B/WxXeaMUW/1SHWHMao03wKF8MiYHTigqg==",
+  "dgSpecHash": "wysj2lvq6zt+gafzR94664Q0r/CX4ZvAFkY9nUM04oRS7OLBiA6WUo7eDpSAhxcmq27YbqCNlEnvpDLHuJB0Lg==",
   "success": true,
-  "projectFilePath": "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
+  "projectFilePath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

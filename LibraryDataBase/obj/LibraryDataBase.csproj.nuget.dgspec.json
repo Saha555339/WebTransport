@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\lab\\WebTransport\\LibraryDataBase\\LibraryDataBase.csproj": {}
+    "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj": {}
   },
   "projects": {
-    "C:\\lab\\WebTransport\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
+    "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\lab\\WebTransport\\ClassLibraryDataParse\\LibraryDataParse.csproj",
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj",
         "projectName": "LibraryDataParse",
-        "projectPath": "C:\\lab\\WebTransport\\ClassLibraryDataParse\\LibraryDataParse.csproj",
+        "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj",
         "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-        "outputPath": "C:\\lab\\WebTransport\\ClassLibraryDataParse\\obj\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
-                "projectPath": "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+              "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+    "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
         "projectName": "LibraryProjectExceptions",
-        "projectPath": "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
+        "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj",
         "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-        "outputPath": "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\obj\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -124,14 +124,14 @@
         }
       }
     },
-    "C:\\lab\\WebTransport\\LibraryDataBase\\LibraryDataBase.csproj": {
+    "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\lab\\WebTransport\\LibraryDataBase\\LibraryDataBase.csproj",
+        "projectUniqueName": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj",
         "projectName": "LibraryDataBase",
-        "projectPath": "C:\\lab\\WebTransport\\LibraryDataBase\\LibraryDataBase.csproj",
+        "projectPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\LibraryDataBase.csproj",
         "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-        "outputPath": "C:\\lab\\WebTransport\\LibraryDataBase\\obj\\",
+        "outputPath": "C:\\lab\\WebTransportLab\\LibraryDataBase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -152,11 +152,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\lab\\WebTransport\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
-                "projectPath": "C:\\lab\\WebTransport\\ClassLibraryDataParse\\LibraryDataParse.csproj"
+              "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryDataParse\\LibraryDataParse.csproj"
               },
-              "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
-                "projectPath": "C:\\lab\\WebTransport\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
+              "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj": {
+                "projectPath": "C:\\lab\\WebTransportLab\\ClassLibraryProjectExceptions\\LibraryProjectExceptions.csproj"
               }
             }
           }

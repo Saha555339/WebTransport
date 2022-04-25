@@ -2,6 +2,7 @@
 using LibraryProjectExceptions;
 using System;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace LibraryDataParse
 {
@@ -38,6 +39,7 @@ namespace LibraryDataParse
                 {
                     string[] s = _arr[i].Split(";");
                     s[1] = s[1].Replace("\"", "");
+                    string name = s[1].Remove(s[1].IndexOf('(') - 1, s[1].Length - s[1].IndexOf('(') + 1);
                     s[6] = s[6].Replace("\"", "");
                     double longitude = 0;
                     double latitude = 0;
@@ -57,7 +59,7 @@ namespace LibraryDataParse
                     {
                         _stops.Add(new StopForParse()
                         {
-                            Name = s[1],
+                            Name = name,
                             Latitude = latitude,
                             Longitude = longitude,
                             DistcrictName = s[6]

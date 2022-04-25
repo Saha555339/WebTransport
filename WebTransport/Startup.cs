@@ -11,7 +11,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using WebTransport.DataBase;
+using LibraryDataBase.Entities;
+using Microsoft.Extensions.PlatformAbstractions;
+using System.Reflection;
+using System.IO;
 
 namespace WebTransport
 {
@@ -20,6 +23,15 @@ namespace WebTransport
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+        }
+        static string XmlCommentsFilePath
+        {
+            get
+            {
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var fileName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name + ".xml";
+                return Path.Combine(basePath, fileName);
+            }
         }
 
         public IConfiguration Configuration { get; }
@@ -31,7 +43,8 @@ namespace WebTransport
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebTransport", Version = "v1" });
-            });
+                c.IncludeXmlComments(XmlCommentsFilePath);
+                });
 
             services.AddEntityFrameworkNpgsql().AddDbContext<TransportContext>(optionsAction: opt =>
             opt.UseNpgsql(Configuration.GetConnectionString(name: "DefaultConnection")));
@@ -56,5 +69,6 @@ namespace WebTransport
                 endpoints.MapControllers();
             });
         }
+
     }
 }

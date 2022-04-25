@@ -9,6 +9,8 @@ namespace LibraryProjectExceptions
 
         public TransportParseException(string message)
             :base(message) { }
+        public TransportParseException(string message, Exception inner)
+            :base(message, inner) { }
 
     }
 }
