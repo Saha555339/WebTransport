@@ -5,15 +5,15 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebTransport", "WebTransport\WebTransport.csproj", "{3B454126-7D24-4139-B8D6-D251828B9BDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDataParse", "ClassLibraryDataParse\LibraryDataParse.csproj", "{FFDE4363-1781-4744-B3DD-89E376310446}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDataParse", "ClassLibraryDataParse\LibraryDataParse.csproj", "{FFDE4363-1781-4744-B3DD-89E376310446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryProjectExceptions", "ClassLibraryProjectExceptions\LibraryProjectExceptions.csproj", "{1657B72C-79B1-4767-AA0A-C966F7FDF03D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryProjectExceptions", "ClassLibraryProjectExceptions\LibraryProjectExceptions.csproj", "{1657B72C-79B1-4767-AA0A-C966F7FDF03D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDto", "LibraryDto\LibraryDto.csproj", "{F7B3DE1C-599A-4B73-84F6-994A5B3C6CCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDto", "LibraryDto\LibraryDto.csproj", "{F7B3DE1C-599A-4B73-84F6-994A5B3C6CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDataBase", "LibraryDataBase\LibraryDataBase.csproj", "{2A36AA6E-2D2A-43F5-8392-A21B35352891}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDataBase", "LibraryDataBase\LibraryDataBase.csproj", "{2A36AA6E-2D2A-43F5-8392-A21B35352891}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabraryLogic", "LabraryLogic\LabraryLogic.csproj", "{42E9AC5F-71FB-498E-937F-AA8C3C1C17B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryLogic", "LibraryLogic\LibraryLogic.csproj", "{42E9AC5F-71FB-498E-937F-AA8C3C1C17B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

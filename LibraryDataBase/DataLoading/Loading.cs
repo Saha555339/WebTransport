@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LibraryDataParse;
 using LibraryProjectExceptions;
+using Microsoft.Extensions.Configuration;
 
 namespace LibraryDataBase.DataLoading
 {
@@ -11,22 +12,29 @@ namespace LibraryDataBase.DataLoading
     {
         private TransportContext _dbContext;
 
-        private Create<City> _createCities;
-        private Create<District> _createDistricts;
-        private Create<Route> _createRoutes;
-        private Create<Stop> _createStops;
+        private CreateAction<City> _createCities;
+        private CreateAction<District> _createDistricts;
+        private CreateAction<Route> _createRoutes;
+        private CreateAction<Stop> _createStops;
 
-        public Loading(TransportContext dbContext)
+        private IConfiguration _configuration;
+
+        private StopsFileParser _parseStops;
+        private RouteFileParser _parseRoutes;
+
+        public Loading(TransportContext dbContext, IConfiguration configuration)
         {
+            _configuration = configuration;
             _dbContext = dbContext;
-            _createCities = new Create<City>(_dbContext);
-            _createDistricts = new Create<District>(_dbContext);
-            _createRoutes = new Create<Route>(_dbContext);
-            _createStops = new Create<Stop>(_dbContext);
+            _createCities = new CreateAction<City>(_dbContext);
+            _createDistricts = new CreateAction<District>(_dbContext);
+            _createRoutes = new CreateAction<Route>(_dbContext);
+            _createStops = new CreateAction<Stop>(_dbContext);
+            _parseStops = new StopsFileParser(_configuration["pathStops"]);
+            _parseRoutes = new RouteFileParser(_configuration["pathRoutes"]);
+
         }
 
-        private StopsFileParser _parseStops = new StopsFileParser(@"C:\lab\WebTransport\OnlyStopsCoordinates.csv");
-        private RouteFileParser _parseRoutes = new RouteFileParser(@"C:\lab\WebTransport\OnlyStops&Routes.csv");
 
         private void StopsLoading()
         {
