@@ -7,7 +7,7 @@ namespace LibraryDto
         public int Id { get; set; }
         public string Number { get; set; }
         public string Type { get; set; }
-        public List<StopDto> Stops { get; set; }
+        //public List<StopDto> Stops { get; set; }
         public RouteDto()
         {
 
@@ -16,7 +16,7 @@ namespace LibraryDto
         {
             Number = number;
             Type = type;
-            Stops = stops;
+            //Stops = stops;
         }
     }
 }

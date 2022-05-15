@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace LibraryDto
 {
@@ -6,12 +7,23 @@ namespace LibraryDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<StopDto> Stops { get; set; }
-        public DistrictDto(string name, List<StopDto> stops)
+        public int StopsCount { get; set; }
+        private List<Tuple<int, int>> _routePairsId = new();
+        public List<Tuple<int, int>> RoutePairsId
+        {
+            get { return _routePairsId; }
+            set { _routePairsId = value; }
+        }
+        public int RoutePairsCount { get; set; }
+        public DistrictDto()
+        {
+
+        }
+        public DistrictDto(string name, int stopsCount, int routePairsCount)
         {
             Name = name;
-            Stops = stops;
+            StopsCount = stopsCount;
+            RoutePairsCount = routePairsCount;
         }
-
     }
 }

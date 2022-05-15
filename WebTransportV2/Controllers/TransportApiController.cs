@@ -2,6 +2,7 @@
 using LibraryDataBase.Entities;
 using LibraryLogic;
 using LibraryProjectExceptions;
+using System.Collections.Generic;
 
 namespace WebTransport.Controllers
 {
@@ -30,6 +31,7 @@ namespace WebTransport.Controllers
             try
             {
                 _logic.SearchPairsOfRoutes();
+                
             }
             catch (LogicExceptions ex)
             {
@@ -37,6 +39,30 @@ namespace WebTransport.Controllers
                 message = ex.Message;
             }
             return check?Ok(_logic.PairsOfRoutes):BadRequest(message);
+        }
+
+        /// <summary>
+        /// Getting districts
+        /// </summary>
+        /// <remarks>
+        /// Getting districts with repeated stops
+        /// </remarks>
+        [Route("transport/api/districts")]
+        [HttpGet]
+        public IActionResult GetDistricts()
+        {
+            bool check = true;
+            string message = "Ok";
+            try
+            {
+                _logic.SearchDistrictsWithRepeatedStops();
+            }
+            catch (LogicExceptions ex)
+            {
+                check = false;
+                message = ex.Message;
+            }
+            return check ? Ok(_logic.DistrictStops) : BadRequest(message);
         }
 
         //[Route("transport/api/stops")]

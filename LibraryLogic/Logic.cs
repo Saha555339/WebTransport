@@ -3,6 +3,7 @@ using LibraryDto;
 using LibraryDataBase.Entities;
 using System.Linq;
 using LibraryProjectExceptions;
+using System;
 
 namespace LibraryLogic
 {
@@ -14,6 +15,7 @@ namespace LibraryLogic
         private List<District> _dbDistricts = new();
         private List<Route> _dbRoutes = new();
         private List<Stop> _dbStops = new();
+
         public Logic(TransportContext dbContext)
         {
             _dbContext = dbContext;
@@ -23,16 +25,16 @@ namespace LibraryLogic
             _dbStops = _dbContext.Stops.ToList();
         }
 
-
-        private List<StopDto> _stops = new();
-        public List<StopDto> Stops
-        {
-            get { return _stops; }
-        }
         private List<PairRoutes> _pairsOfRoutes = new();
         public List<PairRoutes> PairsOfRoutes
         {
             get { return _pairsOfRoutes; }
+        }
+
+        private List<DistrictDto> _districtStops = new();
+        public List<DistrictDto> DistrictStops
+        {
+            get { return _districtStops; }
         }
         
         public void SearchPairsOfRoutes()
@@ -45,7 +47,8 @@ namespace LibraryLogic
                     var kol1 = _dbRoutes[i].StopsId.Count;
                     var kol2 = _dbRoutes[j].StopsId.Count;
                     const double k = 0.6;
-                    if ( ((double)repeated_stops.Count * 2) / (kol1 + kol2) > k)
+                    double matchPercentage = ((double)repeated_stops.Count * 2) / (kol1 + kol2);
+                    if (matchPercentage > k)
                     {
                         List<string> route_names = new();
                         route_names.Add(_dbRoutes[i].Number);
@@ -60,16 +63,18 @@ namespace LibraryLogic
                                 {
                                     Id = _dbRoutes[i].Id,
                                     Number = _dbRoutes[i].Number,
-                                    Stops = first_stops,
+                                    //Stops = first_stops,
                                     Type = _dbRoutes[i].Type
                                 },
                                 SecondRoute = new()
                                 {
                                     Id = _dbRoutes[j].Id,
                                     Number = _dbRoutes[j].Number,
-                                    Stops = second_stops,
+                                    //Stops = second_stops,
                                     Type = _dbRoutes[j].Type
-                                }
+                                },
+                                Stops = first_stops,
+                                MatchPercentage = matchPercentage
                             });
                         }
                     }
@@ -102,47 +107,48 @@ namespace LibraryLogic
             return repeatedStops.Count!=0?repeatedStops:null;
         }
 
-        private StopDto ParseOneStop(int stopId, List<string> route_numbers)
-        {
-            StopDto z = null;
-            var stop = _dbStops.FirstOrDefault(s => s.Id == stopId);
-            var district = _dbDistricts.FirstOrDefault(s => s.Id == stop.DistrictId);
-            if (stop != null && district != null)
-            {
-                z = new StopDto()
-                {
-                    Id = stop.Id,
-                    Name = stop.Name,
-                    DistrictId = district.Id,
-                    District = district.Name,
-                    Latitude = stop.Latitude,
-                    Longitude = stop.Longitude,
-                    //Routes = route_numbers
-                };
-            }
-            return z;
-        }
-
-        public void SearchRepeatedStops()
+        public void SearchDistrictsWithRepeatedStops()
         {
             SearchPairsOfRoutes();
-            foreach (var stop in _dbStops)
+            foreach(var pair in _pairsOfRoutes)
             {
-                List<string> numbers = new();
-                for (int i = 0; i < _pairsOfRoutes.Count; i++)
+                List<int> districtsId = new();
+                foreach(var stop in pair.Stops)
                 {
-                    if (_pairsOfRoutes[i].FirstRoute.Stops.FirstOrDefault(s => s.Name == stop.Name) != null)
+                    var index_stop = StopDistrictIndex(_districtStops, stop.DistrictId);
+                    Tuple<int, int> routePairId = new(pair.FirstRoute.Id, pair.SecondRoute.Id);
+                    if (index_stop==-1)
                     {
-                        numbers.Add(_pairsOfRoutes[i].FirstRoute.Number);
-                        numbers.Add(_pairsOfRoutes[i].SecondRoute.Number);
+                        _districtStops.Add(new DistrictDto { Id = stop.DistrictId, Name = stop.District, StopsCount = 1 });
+                        _districtStops[_districtStops.Count - 1].RoutePairsId.Add(routePairId);
+                        districtsId.Add(stop.DistrictId);
+                    }
+                    else
+                    {
+                        _districtStops[index_stop].StopsCount++;
+                        _districtStops[index_stop].RoutePairsId.Add(routePairId);
+                        districtsId.Add(stop.DistrictId);
                     }
                 }
-                if (numbers.Count > 0)
+                for(int i=0;i<_districtStops.Count;i++)
                 {
-                    numbers = numbers.Distinct().ToList();
-                    _stops.Add(ParseOneStop(stop.Id, numbers));
+
+                    var districts = districtsId.Distinct();
+                    _districtStops[i].RoutePairsId = _districtStops[i].RoutePairsId.Distinct().ToList();
+                    foreach (var distr in districts)
+                        if (distr == _districtStops[i].Id)
+                            _districtStops[i].RoutePairsCount++;
                 }
             }
+        }
+
+        private static int StopDistrictIndex(List<DistrictDto> districts, int districtId)
+        {
+            var index = -1;
+            for (int i = 0; i < districts.Count; i++)
+                if (districts[i].Id == districtId)
+                    return i;
+            return index != -1 ? index : -1;
         }
     }
 }
