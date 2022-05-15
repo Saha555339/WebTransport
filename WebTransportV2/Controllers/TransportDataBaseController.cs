@@ -5,6 +5,7 @@ using System.Linq;
 using LibraryDataBase.DataLoading;
 using LibraryProjectExceptions;
 using Microsoft.Extensions.Configuration;
+using DataCleaning;
 
 namespace WebTransport.Controllers
 {
@@ -14,11 +15,13 @@ namespace WebTransport.Controllers
         private TransportContext _dbContext;
         private Loading _loading;
         private PostEntites _postEntites;
+        private Cleaning _cleaning;
         public TransportDataBaseController(TransportContext dbContext, IConfiguration configuraton)
         {
             _dbContext = dbContext;
             _loading = new(_dbContext, configuraton);
             _postEntites = new(_dbContext);
+            _cleaning = new(_dbContext);
         }
 
         #region Get
@@ -136,6 +139,25 @@ namespace WebTransport.Controllers
         #endregion
 
         #region Post
+        /// <summary>
+        /// Data cleaning in route stops
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("database/cleaning")]
+        public string PostCleanRoutes()
+        {
+            string answer = "All data clean";
+            try
+            {
+                _cleaning.CleanRouteStops();
+            }
+            catch (TransportDataBaseException ex)
+            {
+                answer = ex.Message;
+            }
+            return answer;
+        }
         [HttpPost]
         [Route("database/post/all")]
         public string PostAllData()

@@ -15,7 +15,7 @@ namespace LibraryDto
         {
 
         }
-        public StopDto(string name, double latitude, double longitude, List<string> route, string district)
+        public StopDto(string name, double latitude, double longitude, /*List<string> route,*/ string district)
         {
             Name = name;
             Latitude = latitude;

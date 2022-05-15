@@ -24,9 +24,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryDataParse\LibraryDataParse.csproj" />
     <ProjectReference Include="..\ClassLibraryProjectExceptions\LibraryProjectExceptions.csproj" />
-    <ProjectReference Include="..\LabraryLogic\LibraryLogic.csproj" />
+    <ProjectReference Include="..\DataCleaning\DataCleaning.csproj" />
     <ProjectReference Include="..\LibraryDataBase\LibraryDataBase.csproj" />
     <ProjectReference Include="..\LibraryDto\LibraryDto.csproj" />
+    <ProjectReference Include="..\LibraryLogic\LibraryLogic.csproj" />
   </ItemGroup>
 
 </Project>

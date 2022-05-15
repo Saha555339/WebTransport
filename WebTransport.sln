@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryDataBase", "LibraryD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryLogic", "LibraryLogic\LibraryLogic.csproj", "{42E9AC5F-71FB-498E-937F-AA8C3C1C17B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCleaning", "DataCleaning\DataCleaning.csproj", "{929C9758-1358-4507-9F41-F30E63B0F0D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{42E9AC5F-71FB-498E-937F-AA8C3C1C17B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E9AC5F-71FB-498E-937F-AA8C3C1C17B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E9AC5F-71FB-498E-937F-AA8C3C1C17B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{929C9758-1358-4507-9F41-F30E63B0F0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{929C9758-1358-4507-9F41-F30E63B0F0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{929C9758-1358-4507-9F41-F30E63B0F0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{929C9758-1358-4507-9F41-F30E63B0F0D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -363,15 +363,24 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Migrations
-WebTransport/Migrations/
+Migrations/
 
 # bin
-ClassLibraryDataParse/bin/
-ClassLibraryProjectExceptions/bin/
-LibraryDataBase/bin/
-LibraryDto/bin/
-LibraryLogic/bin/
-WebTransport/bin/
+# ClassLibraryDataParse/bin
+# ClassLibraryProjectExceptions/bin
+# LibraryDataBase/bin
+# LibraryDto/bin
+# LibraryLogic/bin
+# WebTransportV2/bin
+
+# obj
+# ClassLibraryDataParse/obj
+# ClassLibraryProjectExceptions/obj
+# LibraryDataBase/obj
+# LibraryDto/obj
+# LibraryLogic/obj
+# WebTransportV2/obj
+
 
 .vs/
 
