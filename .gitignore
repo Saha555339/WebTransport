@@ -371,7 +371,7 @@ Migrations/
 # LibraryDataBase/bin
 # LibraryDto/bin
 # LibraryLogic/bin
-# WebTransportV2/bin
+# WebTransport/bin
 
 # obj
 # ClassLibraryDataParse/obj
@@ -379,7 +379,11 @@ Migrations/
 # LibraryDataBase/obj
 # LibraryDto/obj
 # LibraryLogic/obj
-# WebTransportV2/obj
+# WebTransport/obj
+
+#Files
+# OnlyStops&Routes.csv
+# OnlyStopsCoordinates
 
 
 .vs/
