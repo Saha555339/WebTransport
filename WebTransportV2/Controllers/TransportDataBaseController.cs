@@ -16,12 +16,14 @@ namespace WebTransport.Controllers
         private Loading _loading;
         private PostEntites _postEntites;
         private Cleaning _cleaning;
+        private NormalizationAlgorithm _normalAlg;
         public TransportDataBaseController(TransportContext dbContext, IConfiguration configuraton)
         {
             _dbContext = dbContext;
             _loading = new(_dbContext, configuraton);
             _postEntites = new(_dbContext);
             _cleaning = new(_dbContext);
+            _normalAlg = new(_dbContext);
         }
 
         #region Get
@@ -158,6 +160,27 @@ namespace WebTransport.Controllers
             }
             return answer;
         }
+
+        /// <summary>
+        /// Data normalization in route stops
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("database/normalize")]
+        public string PostNormalizationRoutes()
+        {
+            string answer = "All data normalize";
+            try
+            {
+                _normalAlg.NormalizationStops();
+            }
+            catch (TransportDataBaseException ex)
+            {
+                answer = ex.Message;
+            }
+            return answer;
+        }
+
         [HttpPost]
         [Route("database/post/all")]
         public string PostAllData()

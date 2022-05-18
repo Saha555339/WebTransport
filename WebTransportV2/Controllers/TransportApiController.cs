@@ -3,6 +3,7 @@ using LibraryDataBase.Entities;
 using LibraryLogic;
 using LibraryProjectExceptions;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace WebTransport.Controllers
 {
@@ -38,7 +39,7 @@ namespace WebTransport.Controllers
                 check = false;
                 message = ex.Message;
             }
-            return check?Ok(_logic.PairsOfRoutes):BadRequest(message);
+            return check?Ok(_logic.PairsOfRoutes.OrderByDescending(s=>s.MatchPercentage)):BadRequest(message);
         }
 
         /// <summary>
@@ -65,22 +66,28 @@ namespace WebTransport.Controllers
             return check ? Ok(_logic.DistrictStops) : BadRequest(message);
         }
 
-        //[Route("transport/api/stops")]
-        //[HttpGet]
-        //public IActionResult GetStops()
-        //{
-        //    bool check = true;
-        //    string message = "Ok";
-        //    try
-        //    {
-        //        _logic.SearchRepeatedStops();
-        //    }
-        //    catch (LogicExceptions ex)
-        //    {
-        //        check = false;
-        //        message = ex.Message;
-        //    }
-        //    return check ? Ok(_logic.Stops) : BadRequest(message);
-        //}
+        /// <summary>
+        /// Get routes
+        /// </summary>
+        /// <remarks>
+        /// Get pair of routes
+        /// </remarks>
+        [Route("transport/api/pair")]
+        [HttpGet]
+        public IActionResult GetPair(string number)
+        {
+            bool check = true;
+            string message = "Ok";
+            try
+            {
+                _logic.SearchPairsOfRoutes();
+            }
+            catch (LogicExceptions ex)
+            {
+                check = false;
+                message = ex.Message;
+            }
+            return check ? Ok(_logic.PairsOfRoutes.First(s=>s.FirstRoute.Number==number)) : BadRequest(message);
+        }
     }
 }

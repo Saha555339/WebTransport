@@ -48,6 +48,14 @@ namespace WebTransport
 
             services.AddEntityFrameworkNpgsql().AddDbContext<TransportContext>(optionsAction: opt =>
             opt.UseNpgsql(Configuration.GetConnectionString(name: "DefaultConnection")));
+            services.AddCors(policy =>
+            {
+                policy.AddPolicy("CorsPolicy", opt => opt
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod());
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +67,7 @@ namespace WebTransport
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebTransport v1"));
             }
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 
@@ -68,6 +77,7 @@ namespace WebTransport
             {
                 endpoints.MapControllers();
             });
+            
         }
 
     }

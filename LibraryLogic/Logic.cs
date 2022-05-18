@@ -90,7 +90,9 @@ namespace LibraryLogic
             foreach(var id in stopsId)
             {
                 var stop = _dbStops.FirstOrDefault(s => s.Id == id);
-                var district = _dbDistricts.FirstOrDefault(s => s.Id == stop.DistrictId);
+                District district = null;
+                if(stop!=null)
+                    district = _dbDistricts.FirstOrDefault(s => s.Id == stop.DistrictId);
                 if (stop != null && district != null)
                 {
                     repeatedStops.Add(new StopDto()
