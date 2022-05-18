@@ -65,29 +65,5 @@ namespace WebTransport.Controllers
             }
             return check ? Ok(_logic.DistrictStops) : BadRequest(message);
         }
-
-        /// <summary>
-        /// Get routes
-        /// </summary>
-        /// <remarks>
-        /// Get pair of routes
-        /// </remarks>
-        [Route("transport/api/pair")]
-        [HttpGet]
-        public IActionResult GetPair(string number)
-        {
-            bool check = true;
-            string message = "Ok";
-            try
-            {
-                _logic.SearchPairsOfRoutes();
-            }
-            catch (LogicExceptions ex)
-            {
-                check = false;
-                message = ex.Message;
-            }
-            return check ? Ok(_logic.PairsOfRoutes.First(s=>s.FirstRoute.Number==number)) : BadRequest(message);
-        }
     }
 }

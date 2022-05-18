@@ -366,24 +366,24 @@ FodyWeavers.xsd
 Migrations/
 
 # bin
-# ClassLibraryDataParse/bin
-# ClassLibraryProjectExceptions/bin
-# LibraryDataBase/bin
-# LibraryDto/bin
-# LibraryLogic/bin
-# WebTransport/bin
+ClassLibraryDataParse/bin
+ClassLibraryProjectExceptions/bin
+LibraryDataBase/bin
+LibraryDto/bin
+LibraryLogic/bin
+WebTransportV2/bin
 
 # obj
-# ClassLibraryDataParse/obj
-# ClassLibraryProjectExceptions/obj
-# LibraryDataBase/obj
-# LibraryDto/obj
-# LibraryLogic/obj
-# WebTransport/obj
+ClassLibraryDataParse/obj
+ClassLibraryProjectExceptions/obj
+LibraryDataBase/obj
+LibraryDto/obj
+LibraryLogic/obj
+WebTransportV2/obj
 
 #Files
-# OnlyStops&Routes.csv
-# OnlyStopsCoordinates
+OnlyStops&Routes.csv
+OnlyStopsCoordinates
 
 
 .vs/
