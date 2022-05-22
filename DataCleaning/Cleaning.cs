@@ -26,29 +26,29 @@ namespace DataCleaning
             {
                 if (route.StopsId.Count > 2)
                 {
-                    
-                    Stop first_stop = stops.First(s => s.Id == route.StopsId[0]);
-                    Stop second_stop = stops.First(s => s.Id == route.StopsId[1]);
 
-                    if (first_stop.DistrictId != second_stop.DistrictId)
+                    Stop first_stop = stops.FirstOrDefault(s => s.Id == route.StopsId[0]);
+                    Stop second_stop = stops.FirstOrDefault(s => s.Id == route.StopsId[1]);
+
+                    if ((first_stop!=null && second_stop!= null) && (first_stop.DistrictId != second_stop.DistrictId))
                         route.StopsId.RemoveAt(0);
 
-                    Stop last_stop = stops.First(s => s.Id == route.StopsId[route.StopsId.Count - 1]);
-                    Stop pre_last = stops.First(s => s.Id == route.StopsId[route.StopsId.Count - 2]);
+                    Stop last_stop = stops.FirstOrDefault(s => s.Id == route.StopsId[route.StopsId.Count - 1]);
+                    Stop pre_last = stops.FirstOrDefault(s => s.Id == route.StopsId[route.StopsId.Count - 2]);
 
-                    if (last_stop.DistrictId != pre_last.DistrictId)
+                    if ((last_stop!=null && pre_last!=null) && (last_stop.DistrictId != pre_last.DistrictId))
                         route.StopsId.RemoveAt(route.StopsId.Count - 1);
-                }
-                 for(int i = 1; i < route.StopsId.Count-1; i++)
-                 {
-                     Stop current_stop = stops.First(s=>s.Id == route.StopsId[i]);
-                     Stop next_stop = stops.First(s=>s.Id == route.StopsId[i+1]);
-                     Stop previous_stop = stops.First(s=>s.Id == route.StopsId[i-1]);
+                    for (int i = 1; i < route.StopsId.Count - 1; i++)
+                    {
+                        Stop current_stop = stops.FirstOrDefault(s => s.Id == route.StopsId[i]);
+                        Stop next_stop = stops.FirstOrDefault(s => s.Id == route.StopsId[i + 1]);
+                        Stop previous_stop = stops.FirstOrDefault(s => s.Id == route.StopsId[i - 1]);
 
-                     if(current_stop.DistrictId != previous_stop.DistrictId && current_stop.DistrictId != next_stop.DistrictId)
-                         route.StopsId.RemoveAt(i);
-                 }
-                _postRoutes.Add(new Route() { City = route.City, CityId = route.CityId, Number = route.Number, StopsId = route.StopsId, Type = route.Type });
+                        if ((next_stop!=null && current_stop != null && previous_stop!=null) && (current_stop.DistrictId != previous_stop.DistrictId && current_stop.DistrictId != next_stop.DistrictId))
+                            route.StopsId.RemoveAt(i);
+                    }
+                    _postRoutes.Add(new Route() { City = route.City, CityId = route.CityId, Number = route.Number, StopsId = route.StopsId, Type = route.Type });
+                }
             }
             PostRoutes();
         }
