@@ -4,6 +4,7 @@ using LibraryLogic;
 using LibraryProjectExceptions;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebTransport.Controllers
 {
@@ -65,5 +66,30 @@ namespace WebTransport.Controllers
             }
             return check ? Ok(_logic.DistrictStops) : BadRequest(message);
         }
+
+        ///<summary>
+        /// All routes
+        /// </summary>
+        /// <remarks>
+        /// Testing all routes
+        /// </remarks>
+        [Route("transport/api/allroutes")]
+        [HttpGet]
+        public IActionResult AllRoutes()
+        {
+            bool check = true;
+            string message = "Ok";
+            try
+            {
+                _logic.CollectAllRoutes();
+            }
+            catch (LogicExceptions ex)
+            {
+                check = false;
+                message = ex.Message;
+            }
+            return check ? Ok(_logic.AllRoutes) : BadRequest(message);
+        }
+
     }
 }

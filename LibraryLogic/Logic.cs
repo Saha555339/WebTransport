@@ -4,12 +4,14 @@ using LibraryDataBase.Entities;
 using System.Linq;
 using LibraryProjectExceptions;
 using System;
+using System.Threading.Tasks;
 
 namespace LibraryLogic
 {
     public class Logic : ILogic
     {
-        private static TransportContext _dbContext;
+        private TransportContext _dbContext;
+
 
         private List<City> _dbCiteis = new();
         private List<District> _dbDistricts = new();
@@ -30,6 +32,46 @@ namespace LibraryLogic
         {
             get { return _pairsOfRoutes; }
         }
+        
+
+        private List<RouteDto> _allRoutes = new();
+        public List<RouteDto> AllRoutes
+        {
+            get { return _allRoutes; }
+        }
+
+        /// <summary>
+        /// Collect all routes.
+        /// </summary>
+        public void CollectAllRoutes()
+        {
+            foreach (var route in _dbRoutes)
+            {
+                List<StopDto> stops = new();
+                foreach(var id in route.StopsId)
+                {
+                    Stop current_stop = _dbStops.FirstOrDefault(s => s.Id == id);
+                    if (current_stop != null)
+                        stops.Add(new StopDto()
+                        {
+                            District = current_stop.District.Name,
+                            DistrictId = current_stop.DistrictId,
+                            Id = current_stop.Id,
+                            Name = current_stop.Name,
+                            Latitude = current_stop.Latitude,
+                            Longitude = current_stop.Longitude
+                        });
+                }
+                _allRoutes.Add(new RouteDto()
+                {
+                    Id = route.Id,
+                    Number = route.Number,
+                    Type = route.Type,
+                    Stops = stops,
+                });
+            }
+        }
+
 
         private List<DistrictDto> _districtStops = new();
         public List<DistrictDto> DistrictStops
@@ -37,6 +79,10 @@ namespace LibraryLogic
             get { return _districtStops; }
         }
         
+        /// <summary>
+        /// Search all pairs of routes with repeated stops.
+        /// </summary>
+        /// <exception cref="LogicExceptions">Found pairs error</exception>
         public void SearchPairsOfRoutes()
         {
             for (int i = 0; i < _dbRoutes.Count; i++)
@@ -109,6 +155,10 @@ namespace LibraryLogic
             return repeatedStops.Count!=0?repeatedStops:null;
         }
 
+        /// <summary>
+        /// Search all districts with repeated stops.
+        /// </summary>
+        /// <exception cref="LogicExceptions">Search districts error</exception>
         public void SearchDistrictsWithRepeatedStops()
         {
             SearchPairsOfRoutes();
@@ -142,6 +192,8 @@ namespace LibraryLogic
                             _districtStops[i].RoutePairsCount++;
                 }
             }
+            if (_districtStops.Count == 0)
+                throw new LogicExceptions("Search districts error");
         }
 
         private static int StopDistrictIndex(List<DistrictDto> districts, int districtId)
